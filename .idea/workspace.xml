@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="50096047-31fd-43c5-ad06-73a0ea929ae0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/HQHelper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HQHelper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/GoogleAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/GoogleAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/ImageToText.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/ImageToText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/ScreenCapture$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/ScreenCapture$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/ScreenCapture$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/ScreenCapture$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HQHelper/ScreenCapture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HQHelper/ScreenCapture.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GoogleAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GoogleAPI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#553#554#0" expanded="true" />
@@ -63,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoogleAPI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GoogleAPI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GoogleAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            <state relative-caret-position="203">
+              <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#search#0;class#GoogleAPI#0" />
@@ -240,12 +233,12 @@
       <workItem from="1531243760708" duration="1333000" />
       <workItem from="1531249168806" duration="3627000" />
       <workItem from="1531273201523" duration="136000" />
-      <workItem from="1531602896541" duration="146000" />
+      <workItem from="1531602896541" duration="230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23121000" />
+    <option name="totallyTimeSpent" value="23205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
@@ -262,7 +255,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3292683" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24525745" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3292683" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2244373" />
@@ -654,25 +647,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GoogleAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#search#0;class#GoogleAPI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
             <element signature="e#581#582#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GoogleAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#search#0;class#GoogleAPI#0" />
           </folding>
         </state>
       </provider>

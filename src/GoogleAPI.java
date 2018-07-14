@@ -92,8 +92,4 @@ public class GoogleAPI extends Thread{
           }
         }
     }
-
-    public void stopThread() throws InterruptedException {
-        Thread.currentThread().join();
-    }
 }
