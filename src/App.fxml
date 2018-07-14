@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="AppController"
+            prefHeight="200.0" prefWidth="350.0">
+    <HBox prefWidth="350.0" prefHeight="200.0" alignment="CENTER">
+        <VBox prefHeight="200.0" prefWidth="175.0" alignment="CENTER" spacing="10">
+            <Label fx:id="question" text="Question"  wrapText="true" textAlignment="CENTER"/>
+            <Label fx:id="choice1" text="Option 1" wrapText="true" textAlignment="CENTER"/>
+             <Label fx:id="choice2" text="Option 2" wrapText="true" textAlignment="CENTER"/>
+            <Label fx:id="choice3" text="Option 3" wrapText="true" textAlignment="CENTER"/>
+        </VBox>
+        <VBox prefHeight="200.0" prefWidth="175.0" alignment="CENTER" spacing="5">
+            <Button fx:id="set" text="Set Screenshot" onAction="#setScreenshot"/>
+            <Button fx:id="take" text="Take Screenshot" onAction="#takeScreenshot"/>
+        </VBox>
+    </HBox>
+</AnchorPane>
