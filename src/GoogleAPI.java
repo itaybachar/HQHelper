@@ -23,6 +23,7 @@ public class GoogleAPI{
     private String cx = "015527553999090345192:z-h9z3nnck0";
     private String key = "AIzaSyBqVU8wqd9c6RztpXKlanYV8KC2WTaXNqA";
     public static String A,B,C, query;
+    public boolean done = false;
     private AppController controller;
 
     public static double countA = 0;
@@ -38,31 +39,38 @@ public class GoogleAPI{
         this.controller = controller;
     }
 
+    public void sendLabelDate(){
+        controller.setPercentages(Math.round((countA/total)*100), Math.round((countB/total)*100), Math.round((countC/total)*100));
+    }
+
 
     private Search getSearchResults() throws GeneralSecurityException, IOException {
         Customsearch cs = new Customsearch.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(),null)
                 .setGoogleClientRequestInitializer(new CustomsearchRequestInitializer(key)).build();
 
         Customsearch.Cse.List list = cs.cse().list(query).setCx(cx);
-        list.setNum((long)9);
+        list.setNum((long)10);
 
         return list.execute();
     }
 
     public void doAPI() throws GeneralSecurityException, IOException {
+        done = false;
+
         //Get Search Results
         List<Result> resultList = getSearchResults().getItems();
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
         for(int i = 0; i< resultList.size(); i++){
-            executorService.submit(new SearchProcessor(resultList.get(i),i,controller));
+            executorService.submit(new SearchProcessor(resultList.get(i),i,this));
         }
 
         executorService.shutdown();
 
         try {
             executorService.awaitTermination(10, TimeUnit.SECONDS);
+            done = true;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -74,13 +82,12 @@ class SearchProcessor implements Runnable {
 
     private Result result;
     private int Id;
-    private AppController controller;
-    private Object lock1 = new Object(),lock2 = new Object(),lock3 = new Object();
-
-    public SearchProcessor(Result result, int Id, AppController controller) {
+    private Object lock1 = new Object(), lock2 = new Object(), lock3 = new Object();
+    private GoogleAPI googleAPI;
+    public SearchProcessor(Result result, int Id,GoogleAPI googleAPI) {
         this.result = result;
         this.Id = Id;
-        this.controller = controller;
+        this.googleAPI = googleAPI;
     }
 
     @Override
@@ -93,35 +100,32 @@ class SearchProcessor implements Runnable {
             if (con.getResponseCode() == 200) {
 
                 InputStream inputStream = con.getInputStream();
-
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-
                 String line;
-
 
                 while ((line = br.readLine()) != null) {
                     line = line.replaceAll(" ", "");
+                    synchronized (lock1) {
                         if (line.toLowerCase().contains(GoogleAPI.A)) {
-                            synchronized (lock1) {
-
                             GoogleAPI.countA++;
                             GoogleAPI.total++;
-                            System.out.println("A: " + GoogleAPI.countA + " B: " + GoogleAPI.countB + " C: " + GoogleAPI.countC + " Total: " + GoogleAPI.total);
+                            googleAPI.sendLabelDate();
                         }
                     }
+                    synchronized (lock2) {
                         if (line.toLowerCase().contains(GoogleAPI.B)) {
-                            synchronized (lock2) {
+
 
                             GoogleAPI.countB++;
                             GoogleAPI.total++;
-                            System.out.println("A: " + GoogleAPI.countA + " B: " + GoogleAPI.countB + " C: " + GoogleAPI.countC + " Total: " + GoogleAPI.total);
+                            googleAPI.sendLabelDate();
                         }
                     }
                     synchronized (lock3) {
                         if (line.toLowerCase().contains(GoogleAPI.C)) {
                             GoogleAPI.countC++;
                             GoogleAPI.total++;
-                            System.out.println("A: " + GoogleAPI.countA + " B: " + GoogleAPI.countB + " C: " + GoogleAPI.countC + " Total: " + GoogleAPI.total);
+                            googleAPI.sendLabelDate();
                         }
                     }
                 }
@@ -129,8 +133,6 @@ class SearchProcessor implements Runnable {
         } catch (Exception e) {
             e.getMessage();
         }
-
-
 
         System.out.println("Completed: " + Id);
     }
