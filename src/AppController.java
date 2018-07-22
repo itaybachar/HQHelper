@@ -9,12 +9,10 @@ public class AppController extends Thread{
     ImageToText imageToText = new ImageToText();
     GoogleAPI googleAPI = null;
 
-    public double percent[] = {0.0,0.0,0.0};
-
-    public void updateLabel(){
-        choice1.setText("A) " + imageToText.getAnswerChoices().get(0) + " " + percent[0] + "%");
-        choice2.setText("B) " + imageToText.getAnswerChoices().get(1) + " " + percent[1] + "%");
-        choice3.setText("C) " + imageToText.getAnswerChoices().get(2) + " " + percent[2] + "%");
+    public void updateLabels(double percentA,double percentB,double percentC){
+        choice1.setText("A) " + imageToText.getAnswerChoices().get(0) + " " + percentA + "%");
+        choice2.setText("B) " + imageToText.getAnswerChoices().get(1) + " " + percentB + "%");
+        choice3.setText("C) " + imageToText.getAnswerChoices().get(2) + " " + percentC + "%");
     }
 
     public void takeScreenshot() throws Exception {
@@ -23,28 +21,15 @@ public class AppController extends Thread{
             imageToText.doOCR(screenCapture.getCapturedImage());
 
             question.setText(imageToText.getQuestion());
-
-            updateLabel();
-
+            updateLabels(0.0,0.0,0.0);
             GoogleAPI googleAPI = new GoogleAPI(imageToText.getAnswerChoices().get(0).toLowerCase(), imageToText.getAnswerChoices().get(1).toLowerCase(),
                     imageToText.getAnswerChoices().get(2).toLowerCase(), imageToText.getQuestion(),this);
-            googleAPI.start();
-            updateLabel();
-            do{
-                updateLabel();
-            } while (!googleAPI.done);
+            googleAPI.doAPI();
         }
     }
 
     public void setScreenshot() throws Exception{
        screenCapture.setRectangle();
-    }
-
-    public void stopApp() throws Exception {
-        if (googleAPI != null) {
-            if (googleAPI.isAlive())
-                googleAPI.join();
-        }
     }
 
 }

@@ -20,9 +20,4 @@ public class Main extends Application {
         launch(args);
     }
 
-    @Override
-    public void stop() throws Exception {
-       AppController controller = loader.getController();
-       controller.stopApp();
-    }
 }
